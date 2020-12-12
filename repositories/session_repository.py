@@ -9,6 +9,13 @@ def save(session):
     results = run_sql(sql, values)
     session.id = results[0]['id']
 
+def select(id):
+    sql = "SELECT * FROM sessions WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    session = Session(result["name"], result["description"], result["upcoming"], result["id"])
+    return session
+
 def update(session):
     sql = "UPDATE sessions SET(name, description, upcoming) = (%s, %s, %s) WHERE id = %s"
     values = [session.name, session.description, session.upcoming, session.id]
