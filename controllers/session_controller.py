@@ -16,7 +16,7 @@ def new_session():
     return render_template("sessions/new.html")
 
 #create new session
-@sessions_blueprint.route("/sessions", methods=['POST'])
+@sessions_blueprint.route("/sessions/new", methods=['POST'])
 def create_session():
     name = request.form["name"]
     description = request.form["description"]

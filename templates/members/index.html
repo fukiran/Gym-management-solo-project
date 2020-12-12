@@ -4,7 +4,8 @@
 
 <h1>list of all members</h1>
 {% for member in members %}
-{{member.name}}
-{{member.age}}
+<ul><a href ='/members/{{member.id}}'>{{member.name}}</a>
+    {{member.age}}
+</ul>
 {% endfor %}
 {% endblock %}

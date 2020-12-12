@@ -2,6 +2,20 @@
 
 {% block content %}
 
-<h1>new member form here</h1>
+
+<form action="/members/new" method="post">       
+        <div>
+            <h1>Add details of new member here :</h1>
+            <p>
+               <label for="name">Member name :</label>
+               <input type="text" name="name" required>
+            </p>
+            <p>
+               <label for="age">Age :</label>
+               <input type="number" name="age" min="0" step="1" max="99" maxlength="2"required>
+            </p>
+            <p><input class="myButton" type="submit" value="Submit"></p>
+        </div>                         
+</form> 
 
 {% endblock %}

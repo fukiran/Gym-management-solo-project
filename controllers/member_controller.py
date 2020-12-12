@@ -10,20 +10,19 @@ def all_members():
     members = member_repository.select_all()
     return render_template("members/index.html", members=members)
 
-
 #new member form
-@members_blueprint.route("/members/new")
-def new_member():
-    return render_template("/members/new.html")
+@members_blueprint.route("/members/new", methods=['GET'])
+def new_session():
+    return render_template("members/new.html")
 
 #create new member
-@members_blueprint.route("/members",methods=['POST'])
-def create_member():
-    name = request.form["name"]
-    age = request.form["age"]
-    new_member = Member(name, age)
-    member_repository.save(new_member)
-    return redirect("/members/index.html")
+@members_blueprint.route("/members/new", methods=['POST'])
+def new_member():
+        name = request.form["name"]
+        age = request.form["age"]
+        new_member = Member(name, age)
+        member_repository.save(new_member)
+        return redirect("/members")
 
 #edit session form
 @members_blueprint.route("/members/<id>/edit")
@@ -32,10 +31,14 @@ def edit_member(id):
     return render_template("/members/edit.html", member=member)
 
 #update member
-@members_blueprint.route("/members/<id>",methods=['POST'])
+@members_blueprint.route("/members/<id>",methods=['POST','GET'])
 def update_member(id):
-    name = request.form["name"]
-    age = request.form["age"]
-    member = Member(name, age, id)
-    member_repository.update(member)
-    return redirect("/members/index.html")
+    if request.method == 'POST':
+        name = request.form["name"]
+        age = request.form["age"]
+        member = Member(name, age, id)
+        member_repository.update(member)
+        return redirect("/members")
+    else:
+        member = member_repository.select(id)
+        return render_template("/members/edit.html",id=id, member=member)

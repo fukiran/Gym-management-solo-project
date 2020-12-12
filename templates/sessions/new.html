@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>add new session here</h1>
 
+<form action="/sessions/new" method="post">       
+        <div>
+            <h1>Add new class here :</h1>
+
+            <p>
+                <label for="name">New class name :</label>
+                <input type="text" name="name" required>
+            </p>
+            <p>
+            
+                <textarea name="description" rows="4" cols="50" placeholder="Description:" required></textarea>
+            </p>
+            <p><input  class="myButton" type="submit" value="Submit"></p>
+        </div>                         
+</form> 
 
 {% endblock %}

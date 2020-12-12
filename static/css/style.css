@@ -26,8 +26,22 @@ body > main > nav > ul > li {
 	position:relative;
 	top:1px;
 }
-#content {
-    color:rgb(234, 226, 183);
+#content  {
+    color:rgb(211, 204, 165);
+}
+
+#content > form > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em;
+}
+#content > form > div > p > input{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-origin: padding-box;
 }
 #entry{
     background: url('/static/images/pexels-ketut-subiyanto-4720268.jpg');
