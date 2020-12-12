@@ -1,7 +1,14 @@
-{% for session in upcoming %}
+{% extends 'base.html' %}
 
-<ul>{{ session.name }}
-    {{ session.description }}
-</ul>
+{% block content %}
 
-{% endfor %}
+    {% for session in upcoming %}
+
+    <ul>
+        {{ session.name }}
+        {{ session.description }}
+    </ul>
+
+    {% endfor %}
+
+{% endblock %}

@@ -12,3 +12,4 @@ class TestMember(unittest.TestCase):
 
     def test_member_has_age(self):
         self.assertEqual(74,self.member.age)
+        

@@ -4,3 +4,4 @@ class Booking:
         self.member = member
         self.session = session
         self.id = id
+        
