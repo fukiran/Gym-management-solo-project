@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>edit session form here</h1>
+<form action="/sessions/{{id}}" method="post">       
+    <div>
+        <h1>Add details of new member here :</h1>
+        <p>
+            <label for="name">New class name :</label>
+            <input type="text" name="name" required value="{{session.name}}" >
+        </p>
+        <p>
+            <textarea name="description" rows="4" cols="50"  required> {{session.description}}</textarea>
+        </p>
+        <p><label for="upcoming">Is class upcoming:</label>
+            <select name="upcoming">
+              <option value="True">Upcoming</option>
+              <option value="False">Past class</option>
+            </select></p>
+
+        <p><input class="myButton" type="submit" value="Submit"></p>
+    </div>                         
+</form> 
+
 
 {% endblock %}

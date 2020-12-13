@@ -5,8 +5,9 @@
     {% for session in upcoming %}
 
     <ul>
-        {{ session.name }}
+        <a href='sessions/{{session.id}}'>{{ session.name }}</a>  
         {{ session.description }}
+        
     </ul>
 
     {% endfor %}

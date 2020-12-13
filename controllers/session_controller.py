@@ -32,13 +32,17 @@ def edit_session(id):
     return render_template("sessions/edit.html", session=session)
 
 #update session
-@sessions_blueprint.route("/sessions/<id>", methods=['POST'])
+@sessions_blueprint.route("/sessions/<id>", methods=['POST','GET'])
 def update_session(id):
-    name = request.form["name"]
-    description = request.form["description"]
-    upcoming = request.form["upcoming"]
-    session = Session(name, description, upcoming, id)
-    session_repository.update(session)
-    return redirect("/sessions")
+    if request.method == 'POST':
+        name = request.form["name"]
+        description = request.form["description"]
+        upcoming = request.form["upcoming"]
+        session = Session(name, description, upcoming, id)
+        session_repository.update(session)
+        return redirect("/sessions")
+    else:
+        session = session_repository.select(id)
+        return render_template("/sessions/edit.html", id=id, session=session)
 
 

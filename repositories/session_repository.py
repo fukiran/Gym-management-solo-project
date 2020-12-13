@@ -10,6 +10,7 @@ def save(session):
     session.id = results[0]['id']
 
 def select(id):
+    session = None
     sql = "SELECT * FROM sessions WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
@@ -40,6 +41,6 @@ def show_upcoming():
     sql = "SELECT * FROM sessions WHERE sessions.upcoming = True"
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['description'], row['upcoming'])
+        session = Session(row['name'], row['description'], row['upcoming'], row['id'])
         upcoming.append(session)
     return upcoming
