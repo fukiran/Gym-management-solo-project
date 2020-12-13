@@ -14,15 +14,15 @@ body > main > nav > ul > li {
     padding: 1em;
 }
 
-.myButton {
+.button {
     background-color: rgb(214, 40, 40);
     border-radius:8px;
     cursor:pointer; 
 }
-.myButton:hover {
+.button:hover {
 	background-color:#FCBF49;
 }
-.myButton:active {
+.button:active {
 	position:relative;
 	top:1px;
 }
@@ -54,3 +54,43 @@ body > main > nav > ul > li {
     margin-left: 8em;
     margin-right: 8em;
 }
+#sessions{
+
+    display:flex;
+    flex-wrap:wrap;
+    width:80%;
+    margin:auto;
+    justify-content:center;
+    color: rgb(0, 48, 73);
+}
+#sessions > a {
+        display: flex;
+        justify-content: center;
+        margin: 1%;
+        border-radius: 1em;
+        width:20%;
+        background:rgb(252, 191, 73);
+        padding:1em;
+    }
+    #members{
+
+        display:flex;
+        width:80%;
+        margin:auto;
+        flex-direction: column;
+        color: rgb(0, 48, 73);
+    }
+    #members > a {
+            display: flex;
+            margin: 1%;
+            border-radius: 1em;
+            background:rgb(252, 191, 73);
+            padding:1em;
+        }
+    #members > a > span {
+        display: flex;
+        width: 40%;
+        justify-content: space-between;
+
+
+    }

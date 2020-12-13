@@ -1,15 +1,20 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <span id="sessions">
     {% for session in upcoming %}
 
-    <ul>
-        <a href='sessions/{{session.id}}'>{{ session.name }}</a>  
-        {{ session.description }}
-        
-    </ul>
+    
+        <a href='sessions/{{session.id}}'>
+            <span> <b>
+              <p>{{ session.name }}</p>
+              <p>{{ session.description }}</p></b>
+              <p><small>Click to edit, or book member for this class.</small></p>
+            </span>
+        </a>
 
     {% endfor %}
-
+    </span>
 {% endblock %}

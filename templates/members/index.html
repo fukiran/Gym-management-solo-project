@@ -1,11 +1,17 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>list of all members</h1>
-{% for member in members %}
-<ul><a href ='/members/{{member.id}}'>{{member.name}}</a>
-    {{member.age}}
-</ul>
-{% endfor %}
+<span id="members">
+    {% for member in members %}
+        <a href='members/{{member.id}}'>
+            <span> <b>
+              <p>Member's name: {{ member.name }}</p>
+              <p>Member's age: {{ member.age }}</p></b>
+            </span>
+        </a>
+        
+    {% endfor %}
+</span>
 {% endblock %}

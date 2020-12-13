@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
 
 {% extends 'base.html' %}
 
@@ -16,7 +16,7 @@
                <label for="age">Age :</label>
                <input type="number" name="age" min="0" step="1" max="99" maxlength="2"required>
             </p>
-            <p><input class="myButton" type="submit" value="Submit"></p>
+            <p><input class="button" type="submit" value="Submit"></p>
         </div>                         
 </form> 
 {% endblock %}
