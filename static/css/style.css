@@ -34,7 +34,7 @@ body > main > nav > ul > li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4em;
+    
 }
 #content > form > div > p > input{
     padding: 1em;

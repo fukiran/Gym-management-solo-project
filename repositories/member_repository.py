@@ -16,7 +16,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         member = Member(result['name'], result['age'], result['id'])
-    return result
+    return member
     
 def select_all():
     members = []

@@ -1,9 +1,11 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+
 {% extends 'base.html' %}
 
 {% block content %}
 
 <form action="/sessions/new" method="post">       
-        <div>
+        <div class="newForm">
             <h1>Add new class here :</h1>
 
             <p>

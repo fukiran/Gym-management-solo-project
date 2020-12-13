@@ -3,23 +3,38 @@
 {% block content %}
 <form action="/sessions/{{id}}" method="post">       
     <div>
-        <h1>Add details of new member here :</h1>
+        <h1>Edit details of this class here :</h1>
         <p>
-            <label for="name">New class name :</label>
+            <label for="name">Class name :</label>
             <input type="text" name="name" required value="{{session.name}}" >
         </p>
         <p>
-            <textarea name="description" rows="4" cols="50"  required> {{session.description}}</textarea>
+            <textarea name="description" rows="4" cols="50"  required>{{session.description}}</textarea>
         </p>
-        <p><label for="upcoming">Is class upcoming:</label>
+        <p>
+            <label for="upcoming">Is class upcoming:</label>
             <select name="upcoming">
               <option value="True">Upcoming</option>
               <option value="False">Past class</option>
-            </select></p>
+            </select>
+        </p>
 
+        <p>
+            <select  name="booked_member_id">
+                <option value="0"> -- select member -- </option>
+                {% for member in all_members %}               
+                    <option value="{{ member.id }}">{{member.name}}</option>
+                {% endfor %}
+            </select>
+        </p>
         <p><input class="myButton" type="submit" value="Submit"></p>
+
     </div>                         
 </form> 
+<p>{% for member1 in booked_members %}  
+        {{member1.name}}
+    {% endfor %}
+</p>
 
 
 {% endblock %}
