@@ -4,7 +4,7 @@
 
 {% block content %}
 
-
+<span id = 'edit_class'>
 <form action="/sessions/{{id}}" method="post">       
     <div>
         <h1>Edit details of this class here :</h1>
@@ -22,6 +22,17 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
+        
+        <p>
+            <label for="booked_member_id">Book member for this class here:</label>
+            <select  name="booked_member_id">
+                <option value="0"> -- select member -- </option>
+                {% for member in all_members %}               
+                    <option value="{{ member.id }}">{{member.name}}</option>
+                {% endfor %}
+            </select>
+        </p>
+
         <p>
             <label for="upcoming">Is class upcoming:</label>
             <select name="upcoming">
@@ -31,24 +42,21 @@
         </p>
         
         <p>
-            <select  name="booked_member_id">
-                <option value="0"> -- select member -- </option>
-                {% for member in all_members %}               
-                    <option value="{{ member.id }}">{{member.name}}</option>
-                {% endfor %}
-            </select>
-        </p>
-        <p>
             <label for="capacity">Capacity :</label>
             <input type="number" name="capacity" value ="{{ session.capacity }}" min="0" step="1" max="99" maxlength="2"required>
          </p>
         <p><input class="button" type="submit" value="Submit"></p>
     </div>                         
 </form> 
-<p>{% for member1 in booked_members %}  
-        {{member1.name}}
+<div>
+    <h1>Members booked for this class:</h1>
+    <ul>
+    {% for member1 in booked_members %}  
+        <a href="/members/{{ member1.id }}">
+        <li>{{member1.name}}</li>
+    </a>
     {% endfor %}
-</p>
-
-
+    </ul>
+</div>
+</span>
 {% endblock %}

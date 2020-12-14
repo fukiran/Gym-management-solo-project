@@ -27,14 +27,12 @@ body > main > nav > ul > li {
 	top:1px;
 }
 #content  {
-    color:rgb(211, 204, 165);
+    color: khaki;
 }
-
 #content > form > div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 #content > form > div > p > input{
     padding: 1em;
@@ -55,7 +53,6 @@ body > main > nav > ul > li {
     margin-right: 8em;
 }
 #sessions{
-
     display:flex;
     flex-wrap:wrap;
     width:80%;
@@ -72,7 +69,7 @@ body > main > nav > ul > li {
         background:rgb(252, 191, 73);
         padding:1em;
     }
-    #members{
+#members{
 
         display:flex;
         width:80%;
@@ -80,17 +77,49 @@ body > main > nav > ul > li {
         flex-direction: column;
         color: rgb(0, 48, 73);
     }
-    #members > a {
+#members > a {
             display: flex;
             margin: 1%;
             border-radius: 1em;
             background:rgb(252, 191, 73);
             padding:1em;
         }
-    #members > a > span {
+#members > a > span {
         display: flex;
         width: 40%;
         justify-content: space-between;
-
-
     }
+#new_class {
+    display: flex;
+    width: 28em;
+    justify-content: space-around;
+}
+#new_class > p{
+    display: flex;
+    flex-direction: column;
+}
+#new_class > p > input{
+    padding: 1em;
+}
+#edit_class{
+    display: flex;
+    justify-content: space-around;
+}
+#edit_class> form > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#edit_class > form > div > p > input{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-origin: padding-box;
+}
+#edit_class > div > ul > a > li{
+    list-style: none;
+    padding: 0.5em;
+    color: khaki;
+
+}

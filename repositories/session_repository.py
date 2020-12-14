@@ -32,7 +32,7 @@ def select_booked_members(id):
     values = [id]
     results = run_sql(sql, values)
     for result in results:
-        member = Member(result["name"], result["age"])
+        member = Member(result["name"], result["age"], result['id'])
         members.append(member)
     return members
 
