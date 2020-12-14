@@ -40,14 +40,19 @@ def update_session(id):
         upcoming = request.form["upcoming"]
         capacity = request.form["capacity"]
         session = Session(name, description, upcoming, capacity, id)
-        session_repository.update(session)
+        
+        if int(capacity) > session_repository.how_many_members(id):
 
-        booked_member_id = request.form["booked_member_id"]
-        if booked_member_id != "0":  
-            booking = Booking(member_repository.select(booked_member_id),session_repository.select(id))   
-            booking_repository.save(booking)
+            session_repository.update(session)
 
+            booked_member_id = request.form["booked_member_id"]
+            if booked_member_id != "0":  
+                booking = Booking(member_repository.select(booked_member_id),session_repository.select(id))   
+                booking_repository.save(booking)
+
+            return redirect("/sessions")
         return redirect("/sessions")
+
     else:
         session = session_repository.select(id)
         booked_members = session_repository.select_booked_members(id)

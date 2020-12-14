@@ -44,3 +44,7 @@ def show_upcoming():
         session = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
         upcoming.append(session)
     return upcoming
+
+def how_many_members(id):
+    booked_members = select_booked_members(id)
+    return len(booked_members)
