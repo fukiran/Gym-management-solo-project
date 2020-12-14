@@ -3,6 +3,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
 <form action="/sessions/{{id}}" method="post">       
     <div>
         <h1>Edit details of this class here :</h1>
@@ -13,6 +15,13 @@
         <p>
             <textarea name="description" rows="4" cols="50"  required>{{session.description}}</textarea>
         </p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h2 style="color:rgb(214, 40, 40)">{{ message }}</h3>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
         <p>
             <label for="upcoming">Is class upcoming:</label>
             <select name="upcoming">
@@ -20,6 +29,7 @@
               <option value="False">Past class</option>
             </select>
         </p>
+        
         <p>
             <select  name="booked_member_id">
                 <option value="0"> -- select member -- </option>
@@ -33,7 +43,6 @@
             <input type="number" name="capacity" value ="{{ session.capacity }}" min="0" step="1" max="99" maxlength="2"required>
          </p>
         <p><input class="button" type="submit" value="Submit"></p>
-
     </div>                         
 </form> 
 <p>{% for member1 in booked_members %}  

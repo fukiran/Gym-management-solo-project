@@ -4,6 +4,7 @@ from controllers.member_controller import members_blueprint
 from controllers.session_controller import sessions_blueprint
 
 app = Flask(__name__)
+app.secret_key = 'this is secret key'
 
 app.register_blueprint(members_blueprint)
 app.register_blueprint(sessions_blueprint)
