@@ -24,16 +24,12 @@ def new_session():
 def create_session():
     name = request.form["name"]
     description = request.form["description"]
+    capacity = request.form["capacity"]
     upcoming = True
-    new_session = Session(name, description, upcoming)
+    new_session = Session(name, description, upcoming, capacity)
     session_repository.save(new_session)
     return redirect("/sessions")
 
-#edit session form
-# @sessions_blueprint.route("/sessions/<id>/edit")
-# def edit_session(id):
-#     session = session_repository.select(id)
-#     return render_template("sessions/edit.html", session=session,)
 
 #update session
 @sessions_blueprint.route("/sessions/<id>", methods=['POST','GET'])
@@ -42,14 +38,15 @@ def update_session(id):
         name = request.form["name"]
         description = request.form["description"]
         upcoming = request.form["upcoming"]
-        session = Session(name, description, upcoming, id)
+        capacity = request.form["capacity"]
+        session = Session(name, description, upcoming, capacity, id)
         session_repository.update(session)
 
         booked_member_id = request.form["booked_member_id"]
-        if booked_member_id != "0":    
+        if booked_member_id != "0":  
             booking = Booking(member_repository.select(booked_member_id),session_repository.select(id))   
             booking_repository.save(booking)
-            
+
         return redirect("/sessions")
     else:
         session = session_repository.select(id)

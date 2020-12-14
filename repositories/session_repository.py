@@ -4,8 +4,8 @@ from models.session import Session
 from models.member import Member
 
 def save(session):
-    sql = "INSERT INTO sessions(name, description, upcoming) VALUES (%s, %s, %s) RETURNING id"
-    values = [session.name, session.description, session.upcoming]
+    sql = "INSERT INTO sessions(name, description, upcoming, capacity) VALUES (%s, %s, %s, %s) RETURNING id"
+    values = [session.name, session.description, session.upcoming, session.capacity]
     results = run_sql(sql, values)
     session.id = results[0]['id']
 
@@ -14,12 +14,12 @@ def select(id):
     sql = "SELECT * FROM sessions WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    session = Session(result["name"], result["description"], result["upcoming"], result["id"])
+    session = Session(result["name"], result["description"], result["upcoming"], result["capacity"], result["id"])
     return session
 
 def update(session):
-    sql = "UPDATE sessions SET(name, description, upcoming) = (%s, %s, %s) WHERE id = %s"
-    values = [session.name, session.description, session.upcoming, session.id]
+    sql = "UPDATE sessions SET(name, description, upcoming, capacity) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.description, session.upcoming, session.capacity, session.id]
     run_sql(sql,values)
 
 def delete_all():
@@ -41,6 +41,6 @@ def show_upcoming():
     sql = "SELECT * FROM sessions WHERE sessions.upcoming = True"
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['description'], row['upcoming'], row['id'])
+        session = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
         upcoming.append(session)
     return upcoming

@@ -20,7 +20,6 @@
               <option value="False">Past class</option>
             </select>
         </p>
-
         <p>
             <select  name="booked_member_id">
                 <option value="0"> -- select member -- </option>
@@ -29,6 +28,10 @@
                 {% endfor %}
             </select>
         </p>
+        <p>
+            <label for="capacity">Capacity :</label>
+            <input type="number" name="capacity" value ="{{ session.capacity }}" min="0" step="1" max="99" maxlength="2"required>
+         </p>
         <p><input class="button" type="submit" value="Submit"></p>
 
     </div>                         
