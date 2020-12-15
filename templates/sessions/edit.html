@@ -28,7 +28,7 @@
             <select  name="booked_member_id">
                 <option value="something"> -- select member -- </option>
                 
-                {% for member in members_to_be_booked %}   
+                {% for member in active_members %}   
                 <!-- {% if member not in booked_members %} -->
                     <option value="{{ member.id }}">{{member.name}}</option>
                     <!-- {%endif%} -->

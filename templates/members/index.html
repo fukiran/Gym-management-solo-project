@@ -3,7 +3,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<span id="active_m">
+    <h1>Active members:</h1>
+    <p>(Deactivated members details are moved to the admin panel)</p>
+</span>
 <span id="members">
+    
     {% for member in members %}
         <a href='members/{{member.id}}'>
             <span> <b>

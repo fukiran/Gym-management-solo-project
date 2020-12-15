@@ -21,7 +21,7 @@ def new_member():
         name = request.form["name"]
         age = request.form["age"]
         premium = request.form["premium"]
-        active = request.form['active']
+        active = True
         new_member = Member(name, age, premium, active)
         member_repository.save(new_member)
         return redirect("/members")

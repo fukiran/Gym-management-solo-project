@@ -59,12 +59,11 @@ def update_session(id):
     else:
         session = session_repository.select(id)
         booked_members = session_repository.select_booked_members(id)
-        all_members = member_repository.select_all()
-        members_to_be_booked = (set(all_members)) - (set(booked_members))
+        active_members = member_repository.select_active()
         capacity = session_repository.select(id)
         if int(capacity.capacity) <= session_repository.how_many_members(id):
             flash(' This class is full, no more bookings available!!!')
 
-        return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, members_to_be_booked=members_to_be_booked)
+        return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, active_members=active_members)
 
 

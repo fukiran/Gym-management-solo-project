@@ -41,6 +41,10 @@ body > main > nav > ul > li {
     align-items: center;
     background-origin: padding-box;
 }
+#active_m{
+    display: flex;
+    justify-content: space-around;
+}
 #entry{
     background: url('/static/images/pexels-ketut-subiyanto-4720268.jpg');
     background-size: cover;
