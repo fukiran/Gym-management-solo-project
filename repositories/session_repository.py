@@ -17,6 +17,15 @@ def select(id):
     session = Session(result["name"], result["description"], result["upcoming"], result["capacity"], result["id"])
     return session
 
+def select_all():
+    sessions = []
+    sql = "SELECT * FROM sessions"
+    results = run_sql(sql)
+    for row in results:
+        session = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
+        sessions.append(session)
+    return sessions
+
 def update(session):
     sql = "UPDATE sessions SET(name, description, upcoming, capacity) = (%s, %s, %s, %s) WHERE id = %s"
     values = [session.name, session.description, session.upcoming, session.capacity, session.id]
@@ -49,6 +58,15 @@ def show_upcoming():
         session = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
         upcoming.append(session)
     return upcoming
+
+def show_past_sessions():
+    past_s = []
+    sql = "SELECT * FROM sessions WHERE sessions.upcoming = False"
+    results = run_sql(sql)
+    for row in results:
+        past = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
+        past_s.append(past)
+    return past_s
 
 def how_many_members(id):
     booked_members = select_booked_members(id)

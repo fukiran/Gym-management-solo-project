@@ -1,7 +1,27 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
 
 {% extends 'base.html' %}
-
 {% block content %}
+<span id="admin">
+    <div>
+        <h1>Past classes:</h1>
+    {% for  session in past_sessions %}   
+    <a href='sessions/{{session.id}}'>
+    <span><b>
+        <p>Class: {{session.name}}</p>
+        <p><small>{{ session.description }}</small></p></b>
+        <p>Capacity: {{ session.capacity }}</p>
+           
+    </span>
+    </a>
+    {%endfor%}
+    </div>
+    <div>
+        <h1>Inactive members</h1>
+    </div>
+</span>
+
+
+
 
 {% endblock %}

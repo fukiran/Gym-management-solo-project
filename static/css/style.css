@@ -121,5 +121,23 @@ body > main > nav > ul > li {
     list-style: none;
     padding: 0.5em;
     color: khaki;
-
+}
+#admin{
+    display: flex;
+    justify-content: space-around;
+}
+#admin > div{
+    display:flex;
+        width:80%;
+        margin:auto;
+        flex-direction: column;
+        
+}
+#admin > div > a{
+        display: flex;
+        margin: 1%;
+        border-radius: 1em;
+        color: rgb(0, 48, 73);
+        background:rgb(252, 191, 73);
+        padding:1em;
 }
