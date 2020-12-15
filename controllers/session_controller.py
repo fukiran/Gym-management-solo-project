@@ -42,10 +42,8 @@ def update_session(id):
         upcoming = request.form["upcoming"]
         capacity = request.form["capacity"]
         session = Session(name, description, upcoming, capacity, id)
-        
+        session_repository.update(session)
         if int(capacity) > session_repository.how_many_members(id):
-
-            session_repository.update(session)
 
             booked_member_id = request.form["booked_member_id"]
             if booked_member_id != "0":  

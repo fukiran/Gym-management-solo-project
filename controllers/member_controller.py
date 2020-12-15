@@ -20,7 +20,9 @@ def new_session():
 def new_member():
         name = request.form["name"]
         age = request.form["age"]
-        new_member = Member(name, age)
+        premium = request.form["premium"]
+        active = request.form['active']
+        new_member = Member(name, age, premium, active)
         member_repository.save(new_member)
         return redirect("/members")
 
@@ -36,7 +38,9 @@ def update_member(id):
     if request.method == 'POST':
         name = request.form["name"]
         age = request.form["age"]
-        member = Member(name, age, id)
+        premium = request.form["premium"]
+        active = request.form['active']
+        member = Member(name, age, premium, active, id)
         member_repository.update(member)
         return redirect("/members")
     else:

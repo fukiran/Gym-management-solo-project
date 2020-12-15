@@ -14,7 +14,9 @@ CREATE TABLE sessions (
 CREATE TABLE members(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    age INT
+    age INT,
+    premium BOOLEAN,
+    active BOOLEAN
 );
 
 CREATE TABLE bookings(

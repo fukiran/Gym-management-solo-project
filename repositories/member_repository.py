@@ -6,8 +6,8 @@ from models.session import Session
 
 
 def save(member):
-    sql = "INSERT INTO members (name, age) VALUES(%s, %s) RETURNING id"
-    values = [member.name, member.age]
+    sql = "INSERT INTO members (name, age, premium, active) VALUES(%s, %s, %s, %s) RETURNING id"
+    values = [member.name, member.age, member.premium, member.active]
     results = run_sql(sql, values)
     member.id = results[0]['id']
 
@@ -17,7 +17,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        member = Member(result['name'], result['age'], result['id'])
+        member = Member(result['name'], result['age'], result['premium'], result['active'], result['id'])
     return member
     
 def select_all():
@@ -25,13 +25,13 @@ def select_all():
     sql ="SELECT * FROM members"
     results = run_sql(sql)
     for row in results:
-        member = Member(row['name'], row['age'], row['id'])
+        member = Member(row['name'], row['age'], row['premium'], row['active'], row['id'])
         members.append(member)
     return members
 
 def update(member):
-    sql = "UPDATE members SET (name, age) = (%s, %s) WHERE id = %s"
-    values = [member.name, member.age, member.id]
+    sql = "UPDATE members SET (name, age, premium, active) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [member.name, member.age, member.premium, member.active, member.id]
     run_sql(sql, values)
 
 def delete(id):
