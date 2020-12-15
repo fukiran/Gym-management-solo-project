@@ -64,7 +64,7 @@ def show_past_sessions():
     sql = "SELECT * FROM sessions WHERE sessions.upcoming = False"
     results = run_sql(sql)
     for row in results:
-        past = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['id'])
+        past = Session(row['name'], row['description'], row['upcoming'], row['capacity'], row['offpeak'], row['id'])
         past_s.append(past)
     return past_s
 

@@ -7,7 +7,7 @@ members_blueprint = Blueprint("members", __name__)
 #show all members
 @members_blueprint.route("/members")
 def all_members():
-    members = member_repository.select_all()
+    members = member_repository.select_active()
     return render_template("members/index.html", members=members)
 
 #new member form

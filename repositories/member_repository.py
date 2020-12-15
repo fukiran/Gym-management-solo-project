@@ -52,3 +52,21 @@ def select_classes_booked_for(id):
         session = Session(result["name"], result["description"], result['upcoming'], result['capacity'], result['offpeak'], result['id'])
         sessions.append(session)
     return sessions
+
+def select_active():
+    active_members = []
+    sql = "SELECT * FROM members WHERE members.active = True"
+    results = run_sql(sql)
+    for row in results:
+        active_member = Member(row['name'], row['age'], row['premium'], row['active'], row['id'])
+        active_members.append(active_member)
+    return active_members
+
+def select_inactive():
+    inactive_members = []
+    sql = "SELECT * FROM members WHERE members.active = False"
+    results = run_sql(sql)
+    for row in results:
+        inactive_member = Member(row['name'], row['age'], row['premium'], row['active'], row['id'])
+        inactive_members.append(inactive_member)
+    return inactive_members
