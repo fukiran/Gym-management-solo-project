@@ -41,4 +41,5 @@ def update_member(id):
         return redirect("/members")
     else:
         member = member_repository.select(id)
-        return render_template("/members/edit.html",id=id, member=member)
+        booked_sessions = member_repository.select_classes_booked_for(id)
+        return render_template("/members/edit.html",id=id, member=member, booked_sessions=booked_sessions)

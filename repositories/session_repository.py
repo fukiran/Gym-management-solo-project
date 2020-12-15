@@ -22,6 +22,11 @@ def update(session):
     values = [session.name, session.description, session.upcoming, session.capacity, session.id]
     run_sql(sql,values)
 
+def delete(id):
+    sql = "DELETE FROM sessions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM sessions"
     run_sql(sql)

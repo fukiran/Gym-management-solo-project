@@ -3,10 +3,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<span id = 'edit_class'>
 <form action="/members/{{id}}" method="post">       
     <div>
-        <h1>Add details of new member here :</h1>
+        <h1>You can edit details of this member here :</h1>
         <p>
            <label for="name">Member name :</label>
            <input type="text" name="name" value="{{member.name}}" >
@@ -19,4 +19,15 @@
     </div>                         
 </form> 
 
+<div>
+    <h1>This member is booked for:</h1>
+    <ul>
+    {% for session in booked_sessions %}  
+        <a href="/sessions/{{ session.id }}">
+        <li>{{session.name}}</li>
+    </a>
+    {% endfor %}
+    </ul>
+</div>
+</span>
 {% endblock %}

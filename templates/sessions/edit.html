@@ -13,7 +13,7 @@
             <input type="text" name="name" required value="{{session.name}}" >
         </p>
         <p>
-            <textarea name="description" rows="4" cols="50"  required>{{session.description}}</textarea>
+            <textarea name="description" rows="4" cols="50" maxlength="30" required>{{session.description}}</textarea>
         </p>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -27,9 +27,13 @@
             <label for="booked_member_id">Book member for this class here:</label>
             <select  name="booked_member_id">
                 <option value="0"> -- select member -- </option>
-                {% for member in all_members %}               
+                
+                {% for member in members_to_be_booked %}   
+                <!-- {% if member not in booked_members %} -->
                     <option value="{{ member.id }}">{{member.name}}</option>
+                    <!-- {%endif%} -->
                 {% endfor %}
+               
             </select>
         </p>
 
