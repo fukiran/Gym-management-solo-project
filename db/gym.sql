@@ -7,7 +7,8 @@ CREATE TABLE sessions (
     name VARCHAR(255),
     description VARCHAR(255),
     upcoming BOOLEAN,
-    capacity INT
+    capacity INT,
+    offpeak BOOLEAN
     
 );
 

@@ -28,7 +28,8 @@ def create_session():
     description = request.form["description"]
     capacity = request.form["capacity"]
     upcoming = True
-    new_session = Session(name, description, upcoming, capacity)
+    offpeak = request.form["offpeak"]
+    new_session = Session(name, description, upcoming, capacity, offpeak)
     session_repository.save(new_session)
     return redirect("/sessions")
 
@@ -41,12 +42,13 @@ def update_session(id):
         description = request.form["description"]
         upcoming = request.form["upcoming"]
         capacity = request.form["capacity"]
-        session = Session(name, description, upcoming, capacity, id)
+        offpeak = request.form["offpeak"]
+        session = Session(name, description, upcoming, capacity, offpeak, id)
         session_repository.update(session)
         if int(capacity) > session_repository.how_many_members(id):
 
             booked_member_id = request.form["booked_member_id"]
-            if booked_member_id != "0":  
+            if booked_member_id != "something":  
                 booking = Booking(member_repository.select(booked_member_id),session_repository.select(id))   
                 booking_repository.save(booking)
 

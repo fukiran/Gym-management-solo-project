@@ -49,6 +49,6 @@ def select_classes_booked_for(id):
     values = [id]
     results = run_sql(sql, values)
     for result in results:
-        session = Session(result["name"], result["description"], result['upcoming'], result['capacity'], result['id'])
+        session = Session(result["name"], result["description"], result['upcoming'], result['capacity'], result['offpeak'], result['id'])
         sessions.append(session)
     return sessions

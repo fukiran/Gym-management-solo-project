@@ -16,6 +16,7 @@
                <label for="age">Age :</label>
                <input type="number" name="age" min="0" step="1" max="99" maxlength="2"required>
             </p>
+            <p>
             <label for="premium">Type of membership:</label>
             <select name="premium">
               <option value="True">Premium</option>
@@ -25,9 +26,11 @@
             <select name="active">
               <option value="True">Active</option>
               <option value="False">Deactivated</option>
+            </select>
+            </p><br><br>
             <p><input class="button" type="submit" value="Submit"></p>
             
-            </select>
+            
         </div>                         
 </form> 
 {% endblock %}

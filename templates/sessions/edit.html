@@ -26,7 +26,7 @@
         <p>
             <label for="booked_member_id">Book member for this class here:</label>
             <select  name="booked_member_id">
-                <option value="0"> -- select member -- </option>
+                <option value="something"> -- select member -- </option>
                 
                 {% for member in members_to_be_booked %}   
                 <!-- {% if member not in booked_members %} -->
@@ -44,7 +44,13 @@
               <option value="False">Past class</option>
             </select>
         </p>
-        
+        <p>
+            <label for="offpeak">Sessions time:</label>
+                    <select name="offpeak">
+                      <option value="True">Off-pick</option>
+                      <option value="False">Pick time</option>
+                    </select>
+        </p>
         <p>
             <label for="capacity">Capacity :</label>
             <input type="number" name="capacity" value ="{{ session.capacity }}" min="0" step="1" max="99" maxlength="2"required>
