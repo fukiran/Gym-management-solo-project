@@ -70,3 +70,13 @@ def select_inactive():
         inactive_member = Member(row['name'], row['age'], row['premium'], row['active'], row['id'])
         inactive_members.append(inactive_member)
     return inactive_members
+
+def select_all_premium_active_members():
+    premium_members = []
+    sql = "SELECT * FROM members WHERE members.premium = TRUE AND members.active = TRUE"
+    results = run_sql(sql)
+    for row in results:
+        premium_member = Member(row['name'], row['age'], row['premium'], row['active'], row['id'])
+        premium_members.append(premium_member)
+    return premium_members
+

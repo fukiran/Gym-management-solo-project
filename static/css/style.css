@@ -83,16 +83,18 @@ body > main > nav > ul > li {
     }
 #members > a {
             display: flex;
+
             margin: 1%;
             border-radius: 1em;
-            background:rgb(252, 191, 73);
-            padding:1em;
-        }
-#members > a > span {
+            background:rgb(252, 191, 73); */
+            /* padding:1em; */
+         }
+#members > a > span  {
         display: flex;
-        width: 40%;
-        justify-content: space-between;
-    }
+        justify-content: space-around;
+        width: 60%;
+       
+    } 
 #new_class {
     display: flex;
     width: 28em;

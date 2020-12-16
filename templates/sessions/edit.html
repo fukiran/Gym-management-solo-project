@@ -26,29 +26,27 @@
         <p>
             <label for="booked_member_id">Book member for this class here:</label>
             <select  name="booked_member_id">
-                <option value="something"> -- select member -- </option>
-                
-                {% for member in active_members %}   
-                <!-- {% if member not in booked_members %} -->
+                <option value="0"> -- select member -- </option>
+                {% for member in members %}   
+                {% if member not in booked_members %}
                     <option value="{{ member.id }}">{{member.name}}</option>
-                    <!-- {%endif%} -->
-                {% endfor %}
-               
+                {% endif %}
+                {% endfor %}             
             </select>
         </p>
 
         <p>
             <label for="upcoming">Is class upcoming:</label>
             <select name="upcoming">
-              <option value="True">Upcoming</option>
-              <option value="False">Past class</option>
+              <option value="True" {%if session.upcoming==True%} selected="selected"{%endif%}> Upcoming</option>
+              <option value= "False" {%if session.upcoming==False%} selected="selected"{%endif%}> Past class</option>
             </select>
         </p>
         <p>
             <label for="offpeak">Sessions time:</label>
                     <select name="offpeak">
-                      <option value="True">Off-pick</option>
-                      <option value="False">Pick time</option>
+                      <option value="True" {% if session.offpeak==True%} selected="selected"{%endif%} >Off-pick</option>
+                      <option value="False" {% if session.offpeak==False%} selected="selected"{%endif%}>Peak time</option>
                     </select>
         </p>
         <p>

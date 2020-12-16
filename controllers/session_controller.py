@@ -45,10 +45,11 @@ def update_session(id):
         offpeak = request.form["offpeak"]
         session = Session(name, description, upcoming, capacity, offpeak, id)
         session_repository.update(session)
+
         if int(capacity) > session_repository.how_many_members(id):
 
             booked_member_id = request.form["booked_member_id"]
-            if booked_member_id != "something":  
+            if booked_member_id != "0":  
                 booking = Booking(member_repository.select(booked_member_id),session_repository.select(id))   
                 booking_repository.save(booking)
 
@@ -59,11 +60,16 @@ def update_session(id):
     else:
         session = session_repository.select(id)
         booked_members = session_repository.select_booked_members(id)
-        active_members = member_repository.select_active()
+        if session.offpeak == False:
+            members = member_repository.select_all_premium_active_members()
+        else:
+            members = member_repository.select_active()
+
         capacity = session_repository.select(id)
+
         if int(capacity.capacity) <= session_repository.how_many_members(id):
             flash(' This class is full, no more bookings available!!!')
-
-        return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, active_members=active_members)
+        # pdb.set_trace()
+        return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, members=members)
 
 
