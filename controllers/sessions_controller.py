@@ -66,8 +66,9 @@ def update_session(id):
             members = member_repository.select_active()
 
         capacity = session_repository.select(id)
+        spaces_taken = session_repository.how_many_members(id)
 
-        if int(capacity.capacity) <= session_repository.how_many_members(id):
+        if int(capacity.capacity) <= spaces_taken:
             flash(' This class is full, no more bookings available!!!')
         # pdb.set_trace()
         return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, members=members)

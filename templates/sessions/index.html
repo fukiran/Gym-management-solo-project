@@ -14,7 +14,13 @@
             <span> <b>
               <p>Class: {{ session.name }}</p>
               <p><small>{{ session.description }}</small></p></b>
-              <p>Capacity: {{ session.capacity }}</p>
+              <p>Capacity: {{ session.capacity }} </p>
+              <p>{% if session.offpeak==True %} 
+                  Off-peak class 
+                  {%else%}
+                   Peak time class 
+                  {%endif%}
+              </p>
               <p><small>Click to edit, or book member for this class.</small></p>
             </span>
         </a>

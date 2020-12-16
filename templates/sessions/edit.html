@@ -8,13 +8,6 @@
 <form action="/sessions/{{id}}" method="post">       
     <div>
         <h1>Edit details of this class here :</h1>
-        <p>
-            <label for="name">Class name :</label>
-            <input type="text" name="name" required value="{{session.name}}" >
-        </p>
-        <p>
-            <textarea name="description" rows="4" cols="50" maxlength="30" required>{{session.description}}</textarea>
-        </p>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -22,6 +15,13 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
+        <p>
+            <label for="name">Class name :</label>
+            <input type="text" name="name" required value="{{session.name}}" >
+        </p>
+        <p>
+            <textarea name="description" rows="4" cols="50" maxlength="30" required>{{session.description}}</textarea>
+        </p>
         
         <p>
             <label for="booked_member_id">Book member for this class here:</label>
@@ -45,7 +45,7 @@
         <p>
             <label for="offpeak">Sessions time:</label>
                     <select name="offpeak">
-                      <option value="True" {% if session.offpeak==True%} selected="selected"{%endif%} >Off-pick</option>
+                      <option value="True" {% if session.offpeak==True%} selected="selected"{%endif%} >Off-peak</option>
                       <option value="False" {% if session.offpeak==False%} selected="selected"{%endif%}>Peak time</option>
                     </select>
         </p>
