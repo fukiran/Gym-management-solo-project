@@ -7,16 +7,16 @@
 <span id = 'edit_class'>
 <form action="/sessions/{{id}}" method="post">       
     <div>
-        <h1>Edit details of this class here :</h1>
+        <h1>Edit details of this class here:</h1>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <h2 style="color:rgb(214, 40, 40)">{{ message }}</h3>
+                <h2 style="color:rgb(214, 40, 40)">{{ message }}</h2>
             {% endfor %}
         {% endif %}
         {% endwith %}
         <p>
-            <label for="name">Class name :</label>
+            <label for="name">Class name:</label>
             <input type="text" name="name" required value="{{session.name}}" >
         </p>
         <p>
@@ -50,7 +50,7 @@
                     </select>
         </p>
         <p>
-            <label for="capacity">Capacity :</label>
+            <label for="capacity">Capacity:</label>
             <input type="number" name="capacity" value ="{{ session.capacity }}" min="0" step="1" max="99" maxlength="2"required>
          </p>
         <p><input class="button" type="submit" value="Submit"></p>

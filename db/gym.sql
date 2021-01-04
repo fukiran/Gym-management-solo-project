@@ -25,3 +25,4 @@ CREATE TABLE bookings(
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
     session_id INT REFERENCES sessions(id) ON DELETE CASCADE
 );
+

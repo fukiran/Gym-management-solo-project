@@ -12,8 +12,6 @@ sessions_blueprint = Blueprint("sessions", __name__)
 @sessions_blueprint.route("/sessions")
 def up_sessions():
     upcoming = session_repository.show_upcoming()
-    # session = session_repository.select(id)
-    # free_spaces = session.capacity - session_repository.how_many_members(id)
     return render_template("sessions/index.html", upcoming = upcoming)
 
 #new session form
@@ -70,7 +68,6 @@ def update_session(id):
 
         if int(capacity.capacity) <= spaces_taken:
             flash(' This class is full, no more bookings available!!!')
-        # pdb.set_trace()
         return render_template("/sessions/edit.html", id=id, session=session, booked_members=booked_members, members=members)
 
 
