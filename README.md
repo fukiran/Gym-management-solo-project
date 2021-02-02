@@ -1,5 +1,7 @@
 In order to use please download and install: Python3, Flask, Psycopg2, PostgreSQL. In the Terminal in gym directory: "createdb gym", "psql -d gym -f db/gym.sql", "flask run". In the browser's address bar type "http://localhost:5000/".
 
+App is build for gym employee to allow customers and classes management.
+
 Brief:
 
 A local gym has asked you to build a piece of software to help them to manage memberships, and register members for classes.
