@@ -2,6 +2,8 @@ In order to use please download and install: Python3, Flask, Psycopg2, PostgreSQ
 
 App is build for gym employee to allow customers and classes management.
 
+https://gym-management-solo.herokuapp.com/
+
 Brief:
 
 A local gym has asked you to build a piece of software to help them to manage memberships, and register members for classes.
