@@ -2,14 +2,15 @@ In order to use please download and install: Python3, Flask, Psycopg2, PostgreSQ
 
 App is build for gym employee to allow customers and classes management.
 
+Please check how it works on Heroku:
+
+https://gym-management-solo.herokuapp.com/
+
 ![Screenshot 2021-02-05 at 22 57 03](https://user-images.githubusercontent.com/72009564/107099535-dd327d00-6809-11eb-9012-635c21a91b0c.png)
 
 ![Screenshot2.png](https://github.com/fukiran/Gym_management_app/blob/main/static/images/Screenshot2.png)
 
 
-Please check how it works on Heroku:
-
-https://gym-management-solo.herokuapp.com/
 
 Brief:
 
